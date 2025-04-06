@@ -17,7 +17,7 @@ Differences: ^ ^ ^  ^ ^    ^^
 
 Clarifying Questions and Expected Behavior
 1. What if the lengths of the strands are not the same?✅
-→ Return 0 or raise an error. 
+→ raise an error. 
 2. What if the strings contain non-alphabetical characters? ✅
 → Only valid DNA letters (A, T, C, G) should be allowed.
 3. Is it case sensitive? ✅
@@ -27,18 +27,25 @@ Clarifying Questions and Expected Behavior
 5. Can we use lowercase letters like "a", "t", etc.? ✅
 → Yes, but convert to uppercase before comparison.
 6. Should we validate that the strands contain only DNA letters (A, T, C, G)?
-→ Yes, raise an error or return 0 if invalid.
+→ Yes, raise an error ✅
 7. What if input is not a string (like numbers or None)?
 → Return 0 or raise an error. ✅
 
 
+Psedocode:
+defina a function hamming_distance (strand1, strand2):
+if one of the string is not a string then return 0
+if length of strand1 is not equal to strand2:
+raise an vallue Error
+update strands to upper case.
+defina a variable {} to store valid_dna {'A', 'T', 'G', 'C'}
+defina avariable to count differneces between two strands diff_count = 0 defaul value is 0
 
-
-Option 1: Use a for loop with index
-Loop through from 0 to length of the string
-Compare letter at position i in both strands
-
-
-Option 2: Use a for-each loop with zip
-Pair letters from both strings together
-Compare each pair
+for i in range loop from 0, to length of strand1:
+if strand1[i] not in valid_dna:
+raise ValueError
+if strand2[i] not in valid_dna:
+raise an valueError
+if strand1[i] != strand2[i]:
+add + 1 to diff_count 
+return total of different counts

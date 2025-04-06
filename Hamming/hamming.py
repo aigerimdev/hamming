@@ -1,8 +1,3 @@
-# # 
-# Example Input	Expected Ouput
-# strand1 = "GAGCCTACTAACGGGAT"
-# strand2 = "CATCGTAATGACGGCCT"	7
-
 def hamming_distance(strand1, strand2):
     if not isinstance(strand1, str) or not isinstance(strand2, str):
         return 0
@@ -27,10 +22,12 @@ def hamming_distance(strand1, strand2):
         if strand1[i] != strand2[i]:
             diff_count += 1
             
-    return diff_count 
+    return diff_count
 
 
-print(hamming_distance("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"))
+# print(hamming_distance("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"))
 # print(hamming_distance("gAGCCTACTAACGGGAT","cATCGTAATGACGGCCT"))
 # print(hamming_distance("GAGCCTACTAACGGGAT","IATCGTAATGACGGCCT"))
 # print(hamming_distance(9,"CATCGTAATGACGGCCT"))
+# print(hamming_distance("GASSSV","CATCGTAATGACGGCCT"))
+# print(hamming_distance("KKKKKKKKKKKKKKKKK", "CATCGTAATGACGGCCT"))

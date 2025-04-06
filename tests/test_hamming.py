@@ -1,8 +1,6 @@
 import pytest
 from Hamming.hamming import hamming_distance
-# Arrange
-# Act
-# Assert
+
 # test 1
 def test_if_the_length_of_strands_are_the_same():
     # Arrange
@@ -45,7 +43,7 @@ def test_check_if_the_letter_is_upper_case():
     # Assert
     assert result == 1
 
-#test 5
+# test 5
 def test_checks_if_there_other_type_of_input_not_string():
     # Arrange
     strand1 = "ATCG"
@@ -54,3 +52,13 @@ def test_checks_if_there_other_type_of_input_not_string():
     result = hamming_distance(strand1, strand2)
     # Assert
     assert result == 0
+
+# test 6
+def test_return_count_of_different_from_two_strands():
+     # Arrange
+    strand1 = "ATCG"
+    strand2 = "ATCT"
+    # Act
+    result = hamming_distance(strand1, strand2)
+    # Assert
+    assert result == 1
