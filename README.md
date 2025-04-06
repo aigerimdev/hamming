@@ -30,3 +30,21 @@ Clarifying Questions and Expected Behavior
 → Yes, raise an error or return 0 if invalid.
 7. What if input is not a string (like numbers or None)?
 → Return 0 or raise an error. ✅
+
+
+
+🛣 Possible Ways to Do It:
+✅ Option 1: Use a for loop with index
+
+Loop through from 0 to length of the string
+Compare letter at position i in both strands
+
+✅ Option 2: Use a for-each loop with zip
+
+Pair letters from both strings together
+Compare each pair
+✅ Option 3: Use recursion (advanced)
+
+Compare first letters
+Then call the function again for the rest
+Stop when the strings are empty

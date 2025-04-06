@@ -1,3 +1,4 @@
+import pytest
 from Hamming.hamming import hamming_distance
 # Arrange
 # Act
@@ -24,16 +25,14 @@ def test_count_of_different_strands():
     assert result == 2
     
 # test3
-def test_if_the_string_contain_other_than_letters_valid_dna():
-    # Arrange
-    strand1 = "ATGC"
-    strand2 = "ADBT"
-    # Act
-    result = hamming_distance(strand1, strand2)
-    
-    # Assert
-    assert result == 0
-    
+def test_invalid_dna_letter_in_strand1():
+    strand1 = "ATBC"  # 'B' is invalid
+    strand2 = "ATGC"
+
+    with pytest.raises(ValueError) as error:
+        hamming_distance(strand1, strand2)
+
+    assert str(error.value) == "'B' is not allowed in DNA"  
 
 # test 4  
 def test_check_if_the_letter_is_upper_case():
