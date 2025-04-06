@@ -8,24 +8,26 @@ def hamming_distance(strand1, strand2):
         return 0
     
     if len(strand1) != len(strand2):
-        return 0
+        raise ValueError("Strands must be the same length")
     
     strand1 = strand1.upper()
     strand2 = strand2.upper()
     
-    total_of_diff = 0
+    valid_dna = {'A', 'T', 'G', 'C'} # faster lookup than list
+    diff_count = 0
     
-    valid_dna_letters = ['A', 'T', 'G', 'C']
+    
     for i in range(0, len(strand1)):
         
-        if strand1[i] not in valid_dna_letters:
+        if strand1[i] not in valid_dna:
             raise ValueError (f"'{strand1[i]}' is not allowed in DNA")
-        if strand2[i] not in valid_dna_letters:
+        if strand2[i] not in valid_dna:
             raise ValueError (f"'{strand2[i]}' is not allowed in DNA")
         
         if strand1[i] != strand2[i]:
-            total_of_diff += 1
-    return total_of_diff   
+            diff_count += 1
+            
+    return diff_count 
 
 
 print(hamming_distance("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT"))

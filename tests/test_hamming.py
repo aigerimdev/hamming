@@ -7,11 +7,12 @@ from Hamming.hamming import hamming_distance
 def test_if_the_length_of_strands_are_the_same():
     # Arrange
     strand1 = "ATCG"
-    strand2 = "ATCG"
+    strand2 = "ATCGG"
     # Act
-    result = hamming_distance(strand1, strand2)
+    with pytest.raises(ValueError) as error:
+        hamming_distance(strand1, strand2)
     # Assert
-    assert len(strand1) == len(strand2)
+    assert str(error.value) == "Strands must be the same length"
 
 #test2
 def test_count_of_different_strands():
@@ -53,13 +54,3 @@ def test_checks_if_there_other_type_of_input_not_string():
     result = hamming_distance(strand1, strand2)
     # Assert
     assert result == 0
-# test 6
-def test_if_both_strands_are_not_empty():
-    # Arrange
-    strand1 = "ATCG"
-    strand2 = ""
-    # Act
-    result = hamming_distance(strand1, strand2)
-    # Assert
-    assert result == 0
-# test 7
