@@ -8,9 +8,8 @@ def hamming_distance(strand1, strand2):
     strand1 = strand1.upper()
     strand2 = strand2.upper()
     
-    valid_dna = {'A', 'T', 'G', 'C'} # faster lookup than list
+    valid_dna = {'A', 'T', 'G', 'C'}
     diff_count = 0
-    
     
     for i in range(0, len(strand1)):
         
@@ -31,3 +30,4 @@ def hamming_distance(strand1, strand2):
 # print(hamming_distance(9,"CATCGTAATGACGGCCT"))
 # print(hamming_distance("GASSSV","CATCGTAATGACGGCCT"))
 # print(hamming_distance("KKKKKKKKKKKKKKKKK", "CATCGTAATGACGGCCT"))
+print(hamming_distance("GLHYJIKOLIYTRESDH", "CATCGTAATGACGGCCT"))

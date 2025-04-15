@@ -1,6 +1,18 @@
 import pytest
 from Hamming.hamming import hamming_distance
 
+# example input 1: strand1 = "GAGCCTACTAACGGGAT", strand2 = "CATCGTAATGACGGCCT"
+# expected output 1: 7
+
+# example input 2: strand1 = "GAGCCT", strand2 = "CATCGTAATGACGGCCT"
+# expected output 2: Strands must be the same length
+
+# example input 3: strand1 = "gAGCCTaCTAACgGGAT", strand2 = "cATCGTAaTGACGGCCt"
+# expected output 3: 7
+
+# example input 4: strand1 = "KKKKKKKKKKKKKKKKK", strand2 = "CATCGTAATGACGGCCT"
+# expected output 4: 'K' is not allowed in DNA
+
 # test 1
 def test_if_the_length_of_strands_are_the_same():
     # Arrange
@@ -54,11 +66,21 @@ def test_checks_if_there_other_type_of_input_not_string():
     assert result == 0
 
 # test 6
-def test_return_count_of_different_from_two_strands():
-     # Arrange
-    strand1 = "ATCG"
-    strand2 = "ATCT"
+def test_if_the_both_strings_empty():
+    # Arrange
+    strand1 = ""
+    strand2 = ""
     # Act
     result = hamming_distance(strand1, strand2)
     # Assert
-    assert result == 1
+    assert result == 0
+
+# # test 7
+# def test_return_count_of_different_from_two_strands():
+#      # Arrange
+#     strand1 = "ATCG"
+#     strand2 = "ATCT"
+#     # Act
+#     result = hamming_distance(strand1, strand2)
+#     # Assert
+#     assert result == 1
